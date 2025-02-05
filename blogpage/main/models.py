@@ -9,3 +9,5 @@ class BlogPost(models.Model):
 class Tags(models.Model):
     text = models.CharField(max_length=1000)
     blogPost = models.ForeignKey(BlogPost, on_delete=models.CASCADE)
+
+#TODO: figure out how to use the info from UI in DB
