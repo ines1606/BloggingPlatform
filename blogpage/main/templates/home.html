@@ -4,6 +4,36 @@
 {% block content %}
     {% if user.is_authenticated %}
     Hi {{user.username}}!
+    <main>
+    <section id="articles-section">
+      <h2>Articles</h2>
+      <h3>Search Articles</h3>
+      <form id="article-form">
+        <label for="searchTitle">Title:</label>
+        <input type="text" id="searchTitle" name="title">
+        <label for="searchTags">Tags (comma-separated):</label>
+        <input type="text" id="searchTags" name="tags">
+        <label for="publishDate">Date published:</label>
+        <input type="date" id="publishDate" name="Datepublished">
+        <button type="submit">Search</button>
+      </form>
+      <div id="articles-container">
+        <!-- Articles will be displayed here -->
+      </div>
+    </section>
+    <section id="new-article-section">
+      <h2>Create a New Article</h2>
+      <form id="article-form">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+        <label for="content">Content:</label>
+        <textarea id="content" name="content" required></textarea>
+        <label for="tags">Tags (comma-separated):</label>
+        <input type="text" id="tags" name="tags">
+        <button type="submit">Publish</button>
+      </form>
+    </section>
+  </main>
     <form action="{% url 'logout' %}" method="post">
         {% csrf_token %}
         <button type="submit">Log Out</button>
@@ -11,5 +41,7 @@
     {% else %}
     <p>You are not logged in</p>
     <a href="{% url 'login' %}">Log In</a>
+    <p>No account yet?</p>
+    <a href="{% url 'signup' %}">Sign Up</a>
     {% endif %}
 {% endblock %}
