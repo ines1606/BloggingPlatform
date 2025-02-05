@@ -21,6 +21,7 @@
         <!-- Articles will be displayed here -->
       </div>
     </section>
+    {% if user.is_superuser %}
     <section id="new-article-section">
       <h2>Create a New Article</h2>
       <form id="article-form">
@@ -33,6 +34,7 @@
         <button type="submit">Publish</button>
       </form>
     </section>
+    {% endif %}
   </main>
     <form action="{% url 'logout' %}" method="post">
         {% csrf_token %}
