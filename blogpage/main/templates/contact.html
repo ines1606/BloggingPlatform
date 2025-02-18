@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %} Contact {% endblock %}
+
+{% block content %}
+<p>I'm here to help.</p>
+<!--action attribute determines where input is used, empty string -> handled in contact view -->
+<form action="" method="post" novalidate>
+{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit">
+</form>
+{% endblock %}

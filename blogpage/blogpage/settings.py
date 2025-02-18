@@ -130,3 +130,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "home"
+CONTACT_REDIRECT_URL = "contact"
+
+# prints emails sent into terminal
+# TODO: (maybe) set up SMTP server
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
