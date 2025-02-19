@@ -1,14 +1,14 @@
 #main/views.py 
 
 from django.shortcuts import render
-from main.forms import ContactUsForm
+from main.forms import ContactUsForm, SearchArticles
 from django.core.mail import send_mail
 from django.shortcuts import redirect
 
 # Create your views here.
 def contact(request):
-    print('Request Method: ', request.method)
-    print('POST data: ', request.POST)
+    #print('Request Method: ', request.method)
+    #print('POST data: ', request.POST)
 
     if request.method == 'POST': 
         # Create instance of form, fill with POST data
@@ -29,4 +29,16 @@ def contact(request):
 
     return render(request, 
                   'contact.html',
+                  {'form':form})
+
+def search(request):
+    #TODO: display all the articles here? 
+    form = SearchArticles(request.POST)
+    print('in search')
+    if form.is_valid():
+        
+        print(form.cleaned_data)  
+
+    return render(request, 
+                  'home.html',
                   {'form':form})

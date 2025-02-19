@@ -8,7 +8,12 @@
     <section id="articles-section">
       <h2>Articles</h2>
       <h3>Search Articles</h3>
-      <form id="article-form">
+      <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Search">
+      </form>
+      <!--<form id="article-form">
         <label for="searchTitle">Title:</label>
         <input type="text" id="searchTitle" name="title">
         <label for="searchTags">Tags (comma-separated):</label>
@@ -16,7 +21,7 @@
         <label for="publishDate">Date published:</label>
         <input type="date" id="publishDate" name="Datepublished">
         <button type="submit">Search</button>
-      </form>
+      </form>-->
       <div id="articles-container">
         <!-- Articles will be displayed here -->
       </div>
