@@ -18,12 +18,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import TemplateView
 from main import views
-from main.views import contact, search
+from main.views import contact, home_view
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("accounts.urls")),
     path("accounts/", include("django.contrib.auth.urls")),
-    path("", search, name="search"),
+    path("", home_view, name="home"),
     path("contact/", contact, name="contact"),
 ]
