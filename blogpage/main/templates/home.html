@@ -25,6 +25,12 @@
             {% endfor %}
           </p>
           <p><small>Published on: {{ post.publish_date }}</small></p>
+          {% if user.is_superuser %}
+          <form method="post" action="{% url 'delete_post' post.id %}">
+            {% csrf_token %}
+            <button type="delete" name="delete_post" onclick="return confirm('Do you really want to delete this post?')">Delete</button>
+          </form>
+          {% endif %}
         </div>
       {% empty %}
         <p>No blog posts found.</p>

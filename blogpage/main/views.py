@@ -1,6 +1,6 @@
 #main/views.py 
 
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from main.forms import ContactUsForm, SearchArticles, BlogPostForm, SearchForm
 from .models import BlogPost, Tags
 from django.core.mail import send_mail
@@ -33,7 +33,6 @@ def contact(request):
                   {'form':form})
 
 def search(request):
-    #TODO: display all the articles here? 
     form = SearchArticles(request.POST)
     print('in search')
     if form.is_valid():
@@ -48,7 +47,7 @@ def search(request):
 def home_view(request):
     search = SearchForm(request.POST or None)
     blog_post_form = BlogPostForm(request.POST or None)
-    blog_posts = BlogPost.objects.all()  # Default: Show all blog posts
+    blog_posts = BlogPost.objects.all()  #  Show all blog posts
 
     if request.method == "POST":
         if "search_submit" in request.POST:  # If search form is submitted
@@ -73,3 +72,9 @@ def home_view(request):
         "blog_post_form": blog_post_form,
         "blog_posts": blog_posts,
     })
+
+def delete_blog_post(request, post_id):
+    if request.method == "POST":
+        post = get_object_or_404(BlogPost, id = post_id)
+        post.delete()
+        return redirect("home")

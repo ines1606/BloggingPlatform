@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import TemplateView
 from main import views
-from main.views import contact, home_view
+from main.views import contact, delete_blog_post, home_view
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -26,4 +26,5 @@ urlpatterns = [
     path("accounts/", include("django.contrib.auth.urls")),
     path("", home_view, name="home"),
     path("contact/", contact, name="contact"),
+    path("delete/<int:post_id>/", delete_blog_post, name="delete_post"),
 ]
