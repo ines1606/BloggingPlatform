@@ -24,7 +24,7 @@ class BlogPostForm(forms.ModelForm):
         fields = ["title", "content", "tags"]
 
     def save(self, commit=True):
-        blog_post = super().save(commit=False)
+        blog_post = super().save(commit=False) 
         if commit: 
             blog_post.save()
             tag_names = self.cleaned_data["tags"].split(",")
