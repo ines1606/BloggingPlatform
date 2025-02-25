@@ -10,8 +10,6 @@ class ContactUsForm(forms.Form):
 
 class SearchArticles(forms.Form):
     title = forms.CharField(required=False)
-    #TODO: find out how to separate them in a list by ","
-    #tags = forms.CharField()
     publish_date = forms.DateField(required=False)
 
 class BlogPostForm(forms.ModelForm):

@@ -135,3 +135,9 @@ CONTACT_REDIRECT_URL = "contact"
 # prints emails sent into terminal
 # TODO: (maybe) set up SMTP server
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "main/static"
+]
