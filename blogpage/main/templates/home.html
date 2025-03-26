@@ -3,11 +3,10 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-    Hi {{user.username}}!
     <main>
     <section id="articles-section">
-      <h2>Articles</h2>
-      <h3>Search Articles</h3>
+      <h2>Recipes</h2>
+      <h3>Search Recipes</h3>
       <form action="" method="post" novalidate>
         {% csrf_token %}
         {{ search.as_p }}

@@ -5,14 +5,18 @@
 
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}My Blog{% endblock %}</title>
+  <title>{% block title %}Recipes{% endblock %}</title>
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
   <main>
-    <a href="{% url 'contact' %}">Contact</a>
-    <a href="{% url 'home' %}">Home</a>
+    <div class="links">
+      <a href="{% url 'contact' %}" class="{% if request.path == '/contact/' %}active{% endif %}">Contact</a>
+      <a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+   </div>
+  
+    
     {% block content %}
     {% endblock %}
   </main>

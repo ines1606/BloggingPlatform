@@ -83,3 +83,7 @@ a:hover {
     color: #444;
     text-decoration: underline;
 }
+
+.links a.active {
+    text-decoration: underline;
+}
